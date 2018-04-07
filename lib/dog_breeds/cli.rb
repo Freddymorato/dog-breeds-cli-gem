@@ -68,7 +68,7 @@ class DogBreeds::CLI
 		end
 	end
 
-	def view_breed_overview(breed) 
+	def view_breed_overview(breed)
 		details = DogBreeds::Scraper.scrape_profile(breed.page_url)
 		breed.add_details(details)
 		puts ""
@@ -84,6 +84,16 @@ class DogBreeds::CLI
 	end
 
 	def view_more_details(breed)
+		puts ""
+		puts "Learn more about the #{breed.name}:"
+		puts "[1] Highlights"
+		puts "[2] History"
+		puts "[3] Personality"
+		puts "[4] Care"
+		puts "[5] Feeding"
+		puts "[6] Children And Other Pets"
+		puts "[Back] to list of all dog breeds"
+		input = gets.strip
 	end
 
 	def view_topic()
