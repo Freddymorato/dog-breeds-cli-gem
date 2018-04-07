@@ -94,6 +94,36 @@ class DogBreeds::CLI
 		puts "[6] Children And Other Pets"
 		puts "[Back] to list of all dog breeds"
 		input = gets.strip
+		topic = nil
+		info = nil
+		case input.downcase
+		when "1","highlights"
+			topic = "Highlights"
+			info = breed.highlights
+		when "2","history"
+			topic = "History"
+			info = breed.history
+		when "3","personality"
+			topic = "Personality"
+			info = breed.personality
+		when "4","care"
+			topic = "Care"
+			info = breed.care
+		when "5","feeding"
+			topic = "Feeding"
+			info = breed.feeding
+		when "6","children and other pets"
+			topic = "Children And Other Pets"
+			info = breed.children_and_other_pets
+		when "back"
+			call
+		when "exit"
+			goodbye
+		else
+			puts ""
+			puts "Invalid Input. Please try again."
+			view_more_details(breed)
+		end
 	end
 
 	def view_topic()
