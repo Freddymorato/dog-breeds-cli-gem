@@ -133,6 +133,16 @@ class DogBreeds::CLI
 		puts "	#{breed.name} - #{topic}																							 "
 		puts "*|*-------------------------------------------------------------------*|*"
 		puts ""
+		if info.is_a?(String)
+			puts "#{info}"
+		else
+			puts "Sorry, there's no info for #{breed.name} on this topic. Please try again."
+			view_more_details(breed)
+		end
+		puts ""
+		puts "[1] Learn more about the #{breed.name}"
+		puts "[2] Learn about a different dog breed"
+		input = gets.strip
 	end
 
 	def goodbye
