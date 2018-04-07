@@ -13,7 +13,7 @@ class DogBreeds::CLI
 		list_dogs(breeds)
 	end
 
-	def make_dogs 
+	def make_dogs
 		breeds_array = DogBreeds::Scraper.scrape_index(BASE_PATH + "/dog-breeds/profiles")
 		breeds_array.collect do |breed|
 			DogBreeds::Dog.new(breed[:name], breed[:page_url])
@@ -69,6 +69,8 @@ class DogBreeds::CLI
 	end
 
 	def view_breed_overview(breed)
+		details = DogBreeds::Scraper.scrape_profile(breed.page_url)
+		breed.add_details(details)
 	end
 
 	def view_more_details(breed)
