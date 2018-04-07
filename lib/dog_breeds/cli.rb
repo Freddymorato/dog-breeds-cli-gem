@@ -83,7 +83,7 @@ class DogBreeds::CLI
 		view_more_details(breed)
 	end
 
-	def view_more_details(breed)
+	def view_more_details(breed) 
 		puts ""
 		puts "Learn more about the #{breed.name}:"
 		puts "[1] Highlights"
@@ -124,6 +124,7 @@ class DogBreeds::CLI
 			puts "Invalid Input. Please try again."
 			view_more_details(breed)
 		end
+		view_topic(breed, topic, info)
 	end
 
 	def view_topic()
