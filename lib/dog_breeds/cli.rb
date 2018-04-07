@@ -127,7 +127,7 @@ class DogBreeds::CLI
 		view_topic(breed, topic, info)
 	end
 
-	def view_topic(breed, topic, info)
+	def view_topic(breed, topic, info) 
 		puts ""
 		puts "*|*-------------------------------------------------------------------*|*"
 		puts "	#{breed.name} - #{topic}																							 "
@@ -143,6 +143,18 @@ class DogBreeds::CLI
 		puts "[1] Learn more about the #{breed.name}"
 		puts "[2] Learn about a different dog breed"
 		input = gets.strip
+		case input.downcase
+		when "1"
+			view_more_details(breed)
+		when "2"
+			call
+		when "exit"
+			goodbye
+		else
+			puts ""
+			puts "Invalid Input. Please try again."
+			view_topic(breed, topic, info)
+		end
 	end
 
 	def goodbye
