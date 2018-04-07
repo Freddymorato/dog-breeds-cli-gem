@@ -8,6 +8,8 @@ class DogBreeds::CLI
 	puts "             *** DOG BREEDS *** 		      		"
 	puts "*|*----------------------------------------*|*"
 	breeds = make_dogs
+		@i = 0
+		@j = 9
 	list_dogs(breeds)
 end
 
@@ -32,6 +34,14 @@ end
 		puts ""
 		puts "Enter the dog breed or number that you would like to learn more about:"
 		input = gets.strip
+		if input.to_i > 0 && input.to_i <= breeds.length
+			view_breed_overview(DogBreeds::Dog.all[input.to_i - 1])
+		elsif DogBreeds::Dog.all.detect{|breed|breed.name.downcase == input.downcase}
+			view_breed_overview(DogBreeds::Dog.all.detect{|breed| breed.name.downcase == input.downcase})
+		elsif input.downcase == "all"
+
+			list_dogs(breeds)
+		end
 	end
 
 	def view_breed_overview(breed)
