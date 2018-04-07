@@ -8,19 +8,19 @@ class DogBreeds::CLI
 		puts "             *** DOG BREEDS *** 		      		"
 		puts "*|*----------------------------------------*|*"
 		breeds = make_dogs
-			@i = 0
-			@j = 9
+		@i = 0
+		@j = 9
 		list_dogs(breeds)
 	end
 
-	def make_dogs
+	def make_dogs #Scrapes site index page to gather all of the breeds and breed urls
 		breeds_array = DogBreeds::Scraper.scrape_index(BASE_PATH + "/dog-breeds/profiles")
 		breeds_array.collect do |breed|
 			DogBreeds::Dog.new(breed[:name], breed[:page_url])
 		end
 	end
 
-	def list_dogs(breeds)
+	def list_dogs(breeds) #indexes through array of dog breeds returned from make_dogs and lists each one for user to select from
 		puts ""
 		breeds[@i..@i+@j].each.with_index(@i + 1) {|b,i|puts "[#{i}] #{b.name}"}
 		puts "[all]" if @j != 209
@@ -68,7 +68,7 @@ class DogBreeds::CLI
 		end
 	end
 
-	def view_breed_overview(breed)
+	def view_breed_overview(breed) #upon selecting a specific dog breed, this method scrapes that breed's url page for more information
 		details = DogBreeds::Scraper.scrape_profile(breed.page_url)
 		breed.add_details(details)
 		puts ""
@@ -83,7 +83,7 @@ class DogBreeds::CLI
 		view_more_details(breed)
 	end
 
-	def view_more_details(breed)
+	def view_more_details(breed) #after more info is scraped from view_breed_overview, more options are presented to learn more about breed
 		puts ""
 		puts "Learn more about the #{breed.name}:"
 		puts "[1] Highlights"
@@ -127,7 +127,7 @@ class DogBreeds::CLI
 		view_topic(breed, topic, info)
 	end
 
-	def view_topic(breed, topic, info) 
+	def view_topic(breed, topic, info) #once specific topic is selected, more information on that topic is presented to the user
 		puts ""
 		puts "*|*-------------------------------------------------------------------*|*"
 		puts "	#{breed.name} - #{topic}																							 "
@@ -157,7 +157,7 @@ class DogBreeds::CLI
 		end
 	end
 
-	def goodbye
+	def goodbye #upon exiting the program, the user is presented a thank you and dog artwork
     puts ""
 		puts "*|*----------------------------------------*|*"
 		puts " 	Thanks for learning about dogs!						"
