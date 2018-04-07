@@ -68,9 +68,19 @@ class DogBreeds::CLI
 		end
 	end
 
-	def view_breed_overview(breed)
+	def view_breed_overview(breed) 
 		details = DogBreeds::Scraper.scrape_profile(breed.page_url)
 		breed.add_details(details)
+		puts ""
+		puts "*|*-------------------------------------------------------------------*|*"
+		puts "	#{breed.name}																													 "
+		puts "*|*-------------------------------------------------------------------*|*"
+		puts ""
+		puts "#{breed.intro}"
+		puts ""
+		puts "Size: #{breed.size}"
+		puts ""
+		view_more_details(breed)
 	end
 
 	def view_more_details(breed)
