@@ -83,7 +83,7 @@ class DogBreeds::CLI
 		view_more_details(breed)
 	end
 
-	def view_more_details(breed) 
+	def view_more_details(breed)
 		puts ""
 		puts "Learn more about the #{breed.name}:"
 		puts "[1] Highlights"
@@ -127,7 +127,12 @@ class DogBreeds::CLI
 		view_topic(breed, topic, info)
 	end
 
-	def view_topic()
+	def view_topic(breed, topic, info)
+		puts ""
+		puts "*|*-------------------------------------------------------------------*|*"
+		puts "	#{breed.name} - #{topic}																							 "
+		puts "*|*-------------------------------------------------------------------*|*"
+		puts ""
 	end
 
 	def goodbye
