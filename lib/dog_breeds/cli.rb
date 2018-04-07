@@ -3,25 +3,24 @@ class DogBreeds::CLI
 	BASE_PATH = "http://dogtime.com"
 
 	def call
-	puts ""
-	puts "*|*----------------------------------------*|*"
-	puts "             *** DOG BREEDS *** 		      		"
-	puts "*|*----------------------------------------*|*"
-	breeds = make_dogs
-		@i = 0
-		@j = 9
-	list_dogs(breeds)
-end
-
-	def make_dogs
-		breeds_array = DogBreeds::Scraper.scrape_index(BASE_PATH + "/dog-breeds/profiles")
-		breeds_array.collect do |breed|
-				DogBreeds::Dog.new(breed[:name], breed[:page_url])
-			end
+		puts ""
+		puts "*|*----------------------------------------*|*"
+		puts "             *** DOG BREEDS *** 		      		"
+		puts "*|*----------------------------------------*|*"
+		breeds = make_dogs
+			@i = 0
+			@j = 9
+		list_dogs(breeds)
 	end
 
+	def make_dogs 
+		breeds_array = DogBreeds::Scraper.scrape_index(BASE_PATH + "/dog-breeds/profiles")
+		breeds_array.collect do |breed|
+			DogBreeds::Dog.new(breed[:name], breed[:page_url])
+		end
+	end
 
-	def list_dogs(breeds) #indexes through array of dog breeds returned from make_dogs and lists each one for user to select from
+	def list_dogs(breeds)
 		puts ""
 		breeds[@i..@i+@j].each.with_index(@i + 1) {|b,i|puts "[#{i}] #{b.name}"}
 		puts "[all]" if @j != 209
@@ -39,8 +38,33 @@ end
 		elsif DogBreeds::Dog.all.detect{|breed|breed.name.downcase == input.downcase}
 			view_breed_overview(DogBreeds::Dog.all.detect{|breed| breed.name.downcase == input.downcase})
 		elsif input.downcase == "all"
-
+			@i = 0
+			@j = 209
 			list_dogs(breeds)
+		elsif input.downcase == "less"
+			@i = 0
+			@j = 9
+			list_dogs(breeds)
+		elsif input.downcase == "next" && @i+@j == 209
+			puts ""
+			puts "That's all the dog breeds!"
+			list_dogs(breeds)
+		elsif input.downcase == "next"
+			@i += 10
+			list_dogs(breeds)
+		elsif input.downcase == "back" && @i == 0
+			puts ""
+			puts "That's all the dog breeds!"
+			list_dogs(breeds)
+		elsif input.downcase == "back"
+			@i -= 10
+			list_dogs(breeds)
+		elsif input.downcase == "exit"
+			self.goodbye
+		else
+			puts ""
+			puts "Invalid Input. Please try again."
+			self.list_dogs(breeds)
 		end
 	end
 
