@@ -1,28 +1,14 @@
 # DogBreeds
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/dog_breeds`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A CLI gem that scrapes a website and provides the user information on different dog breeds.
 
 ## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'dog_breeds'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
 
     $ gem install dog_breeds
 
 ## Usage
 
-TODO: Write usage instructions here
+    $ ./bin/dog-breeds
 
 ## Development
 
