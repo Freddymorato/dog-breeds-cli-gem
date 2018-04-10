@@ -8,7 +8,9 @@ A CLI gem that scrapes a website and provides the user information on different 
 
 ## Usage
 
-    $ ./bin/dog-breeds
+    $ dog-breeds
+
+User can select a dog from the main menu by entering either its breed name or menu number. Once you've selected a dog breed, you will be able to select further details to learn more about that breed. When you select a specific category, you can either go back and look into another category for that same dog breed, or you can go back to the home menu and learn about a different dog breed. Enter exit at any point while using dog_breeds to close out of the gem CLI.    
 
 ## Development
 
