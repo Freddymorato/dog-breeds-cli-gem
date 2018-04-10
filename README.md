@@ -1,6 +1,4 @@
-# DogBreeds
-
-A CLI gem that scrapes a website and provides the user information on different dog breeds.
+# Dog Breeds
 
 ## Installation
 
