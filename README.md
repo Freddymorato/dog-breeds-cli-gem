@@ -1,6 +1,6 @@
 # Dog Breeds
 
-[![Gem Version](https://badge.fury.io/rb/dog_breeds.svg)](https://badge.fury.io/rb/dog_breeds.svg)
+[![Gem Version](https://badge.fury.io/rb/dog_breeds.svg)](https://rubygems.org/gems/dog_breeds)
 
 ## Installation
 
