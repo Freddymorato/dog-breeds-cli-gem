@@ -1,6 +1,6 @@
 # Dog Breeds
 
-git@github.com:Freddymorato/dog-breeds-cli-gem.git
+[![Gem Version](https://badge.fury.io/rb/dog_breeds.svg)](https://badge.fury.io/rb/dog_breeds.svg)
 
 ## Installation
 
