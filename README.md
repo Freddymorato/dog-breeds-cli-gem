@@ -1,5 +1,7 @@
 # Dog Breeds
 
+git@github.com:Freddymorato/dog-breeds-cli-gem.git
+
 ## Installation
 
     $ gem install dog_breeds
