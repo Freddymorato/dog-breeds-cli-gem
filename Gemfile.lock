@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    dog_breeds (0.1.0)
+    dog_breeds (0.2.0)
       nokogiri
 
 GEM
