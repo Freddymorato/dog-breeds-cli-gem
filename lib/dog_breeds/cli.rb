@@ -1,6 +1,6 @@
 class DogBreeds::CLI
 
-	BASE_PATH = "http://dogtime.com"
+	BASE_PATH = "https://dogtime.com"
 
 	def call
 		puts ""
